@@ -13,4 +13,6 @@ Getting Started
 Code Docs
 ---------
 
+**TODO:** Do something worthwhile with the Game class...
+
 **TODO:** Basic guide on how Slick2D works with links to Slick2D docs (and Bucky's tutorials?)
