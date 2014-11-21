@@ -2,6 +2,7 @@
 javadoc/
 out/
 
+# Basic files we don't want to add
 .DS_Store  # aaaah... the joys of macs...
 *.swp      # vim temp/swap files
 *.class
