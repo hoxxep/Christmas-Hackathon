@@ -8,7 +8,7 @@ Getting Started
 ---------------
 
 **TODO:** add info on downloading the `lib` folder (or add it to git?) and then running the IntelliJ project.
-
+**TODO:** Once IntelliJ setup is finalised (including artifacts) add .idea/ to gitignore before starting the project
 
 Code Docs
 ---------

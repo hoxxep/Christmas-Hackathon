@@ -11,6 +11,7 @@ public class Game extends StateBasedGame {
 
     public static void main(String args[]) {
         System.out.println("Wooop!");
+        System.out.println("Hmm...");
     }
 
     @Override
