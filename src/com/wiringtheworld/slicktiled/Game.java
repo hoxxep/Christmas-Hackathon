@@ -1,17 +1,59 @@
 package com.wiringtheworld.slicktiled;
 
+import org.lwjgl.opengl.Display;
+import org.newdawn.slick.CanvasGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 public class Game extends StateBasedGame {
+    public static int WIDTH = 800;
+    public static int HEIGHT = 600;
+    public static final boolean FULLSCREEN = false;
+
+    public static final String TITLE = "SlickTiled 0.1a";
+
     public Game(String name) {
         super(name);
     }
 
     public static void main(String args[]) {
-        System.out.println("Wooop!");
-        System.out.println("Hmm...");
+        try {
+            Game game = new Game(TITLE);
+            CanvasGameContainer container = new CanvasGameContainer(game);
+
+            Frame frame = new Frame(TITLE);
+            frame.setLayout(new GridLayout(1,2));
+
+            if(!FULLSCREEN) {
+                frame.setSize(WIDTH,HEIGHT);
+            } else {
+                frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+                frame.setUndecorated(true);
+                frame.setResizable(false);
+                //frame.setSize(Display.getWidth(), Display.getHeight());
+            }
+
+            frame.add(container);
+            frame.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    //TODO: save stuff?
+                    Display.destroy();
+
+                    System.out.println("Exiting " + TITLE + "...");
+                    System.exit(0);
+                }
+            });
+            frame.setVisible(true);
+
+            container.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
