@@ -1,6 +1,7 @@
 # Ignore IntelliJ cruft and javadocs
 javadoc/
 out/
+.idea/
 
 # Basic files we dont want to add
 .DS_Store

@@ -1,5 +1,6 @@
 package com.wiringtheworld.slicktiled;
 
+import com.wiringtheworld.slicktiled.level.Level;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.CanvasGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -17,8 +18,12 @@ public class Game extends StateBasedGame {
 
     public static final String TITLE = "SlickTiled 0.1a";
 
+    // States list
+    public static final int LEVEL = 0;
+
     public Game(String name) {
         super(name);
+        this.addState(new Level(LEVEL));
     }
 
     public static void main(String args[]) {
@@ -58,6 +63,6 @@ public class Game extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
-
+        this.enterState(LEVEL);
     }
 }
