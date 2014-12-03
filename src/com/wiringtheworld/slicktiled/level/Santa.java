@@ -10,6 +10,7 @@ import org.newdawn.slick.SlickException;
  */
 public class Santa {
     float x;
+    float xTime;
 
     static Image santaImage;
 
@@ -22,7 +23,17 @@ public class Santa {
     }
 
     public void update(int i) {
+        xTime += i;
+        float w = (Game.WIDTH - santaImage.getWidth()) / 2;
+        x = (int) (Math.sin(2 * Math.PI * xTime / 3000)*w + w);
+    }
 
+    public Vector position() {
+        return new Vector(x + santaImage.getWidth()/2, 20 + santaImage.getHeight() - 10);
+    }
+
+    public Vector velocity() {
+        return new Vector((float) Math.cos(2 * Math.PI * xTime / 3000) * 2, 0);
     }
 
     public void render(Graphics graphics) {
