@@ -23,7 +23,7 @@ public class Chimney {
     }
 
     public boolean checkBounce(Present present){
-        return (((present.pos.x < pos.x && (present.pos.x + present.width() > pos.x) || (present.pos.x < pos.x + width()) && ((present.pos.x + present.width()) > (pos.x + width()))) && (present.pos.y + present.height()) >= pos.y));
+        return (((present.pos.x < pos.x && (present.pos.x + present.width() > pos.x) || (present.pos.x < pos.x + width()) && ((present.pos.x + present.width()) > (pos.x + width()))) && (present.pos.y + present.height()) >= pos.y)) && (present.pos.y < Game.HEIGHT - chimneyImage.getHeight() + 10);
     }
 
     public void update(int i) {

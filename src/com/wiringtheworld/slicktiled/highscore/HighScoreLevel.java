@@ -22,7 +22,7 @@ public class HighScoreLevel extends BasicGameState{
 
     public void addScore(int score){
         ArrayList<Score> scores = highscore.getScores();
-        if (scores.isEmpty() || score >= scores.get(scores.size() - 1).score) {
+        if (scores.size() < Highscores.SCORE_LIMIT || score >= scores.get(scores.size() - 1).score) {
             isEnteringName = true;
             newScore = new Score("", score);
         }
@@ -73,7 +73,7 @@ public class HighScoreLevel extends BasicGameState{
 
     @Override
     public void keyPressed(int i, char c) {
-        System.out.println(i);
+        //System.out.println(i);
         if (isEnteringName) {
             if (i == 14 && !newScore.name.isEmpty()) {
                 newScore.name = newScore.name.substring(0, newScore.name.length() - 1);
@@ -82,7 +82,7 @@ public class HighScoreLevel extends BasicGameState{
                 isEnteringName = false;
                 highscore.addScore(newScore);
             }
-            if (Character.toString(c).matches("[0-9A-Za-z_ ]") && newScore.name.length() < 15) {
+            if (Character.toString(c).matches("[0-9A-Za-z_\\- ]") && newScore.name.length() < 15) {
                 newScore.name += c;
             }
         } else if (timeSpent >= 3000) playagain = true;

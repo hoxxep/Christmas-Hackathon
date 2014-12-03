@@ -12,6 +12,7 @@ public class Present {
 
     Vector pos;
     Vector vel;
+    private int aliveTime = 0;
 
     public static Image presentImage;
 
@@ -27,6 +28,7 @@ public class Present {
     public void update(int i){
         vel.add(Level.G).mult(Level.RES);
         pos.add(vel);
+        aliveTime += i;
     }
 
     public void render(Graphics graphics) {
@@ -34,7 +36,7 @@ public class Present {
     }
 
     public boolean needsDestroyed() {
-        return (pos.y > Game.HEIGHT);
+        return (pos.y > Game.HEIGHT || aliveTime >= 4000);
     }
 
     public int width(){
@@ -45,8 +47,8 @@ public class Present {
         return presentImage.getHeight();
     }
 
-    public void bounce(){
-        if (vel.y > 0){
+    public void bounce() {
+        if (vel.y > 0) {
             vel.y = -(vel.y / 1.5f);
         }
     }
