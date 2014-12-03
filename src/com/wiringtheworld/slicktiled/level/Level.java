@@ -15,9 +15,11 @@ public class Level extends BasicGameState {
     Chimney chimney;
 
     int presentsLeft;
+    int score;
 
     public Level(int state) {
         presentsLeft = 10;
+        score = 0;
     }
 
     @Override
@@ -53,8 +55,16 @@ public class Level extends BasicGameState {
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
         if (present != null) {
             present.update(i);
-            if (present.needsDestroyed()) {
+
+            if (chimney.checkSuccess(present)) {
+                score ++;
                 present = null;
+            } else if (present.needsDestroyed()) {
+                present = null;
+            }
+        } else {
+            if (presentsLeft <= 0) {
+                //TODO: transition into highscores
             }
         }
         chimney.update(i);

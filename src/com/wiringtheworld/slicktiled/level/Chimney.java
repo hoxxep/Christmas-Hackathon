@@ -19,11 +19,11 @@ public class Chimney {
     }
 
     public boolean checkSuccess(Present present){
-        return (pos.x <= present.pos.x && (present.pos.x + present.width()) <= (pos.x + width()) && pos.y >= (present.pos.y + present.width()));
+        return (pos.x <= present.pos.x && (present.pos.x + present.width()) <= (pos.x + width()) && pos.y <= (present.pos.y + present.width()));
     }
 
     public boolean checkBounce(Present present){
-        return ((present.pos.x < pos.x && (present.pos.x + present.width() > pos.x) || (present.pos.x < pos.x + width()) && ((present.pos.x + present.width()) > (pos.x + width())) && (present.pos.y + present.height()) <= pos.y));
+        return ((present.pos.x < pos.x && (present.pos.x + present.width() > pos.x) || (present.pos.x < pos.x + width()) && ((present.pos.x + present.width()) > (pos.x + width())) && (present.pos.y + present.height()) >= pos.y));
     }
 
     public void update(int i) {
