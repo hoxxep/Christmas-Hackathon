@@ -82,7 +82,7 @@ public class HighScoreLevel extends BasicGameState{
                 isEnteringName = false;
                 highscore.addScore(newScore);
             }
-            if (Character.toString(c).matches("[0-9A-Za-z_\\-]") && newScore.name.length() < 15) {
+            if (Character.toString(c).matches("[0-9A-Za-z_\\- ]") && newScore.name.length() < 15) {
                 newScore.name += c;
             }
         } else if (timeSpent >= 3000) playagain = true;
