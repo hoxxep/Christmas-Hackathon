@@ -1,7 +1,6 @@
 package com.wiringtheworld.slicktiled.level;
 
 import com.wiringtheworld.slicktiled.Game;
-import org.lwjgl.opengl.Display;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;

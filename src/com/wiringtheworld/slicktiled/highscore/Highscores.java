@@ -1,5 +1,6 @@
 package com.wiringtheworld.slicktiled.highscore;
 import java.util.*;
+
 /**
  * Created by chris on 03/12/2014.
  */
@@ -12,13 +13,8 @@ public class Highscores {
     }
 
     public ArrayList<Score> getScores(){
-
         Collections.sort(scores);
         return scores;
-
-
     }
-
-
 
 }

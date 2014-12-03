@@ -15,14 +15,12 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class HighScoreLevel extends BasicGameState{
 
+    public HighScoreLevel(int state) {
 
-
-     public HighScoreLevel(int state) {
-
-        }
+    }
 
     @Override public int getID() {
-            return Game.LEVEL;
+            return Game.HIGHSCORES;
     }
 
     @Override
@@ -33,13 +31,13 @@ public class HighScoreLevel extends BasicGameState{
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
 
-        }
+    }
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
 
-        }
     }
+}
 
 
 

@@ -21,6 +21,7 @@ public class Game extends StateBasedGame {
 
     // States list
     public static final int LEVEL = 0;
+    public static final int HIGHSCORES = 1;
 
     public Game(String name) {
         super(name);
