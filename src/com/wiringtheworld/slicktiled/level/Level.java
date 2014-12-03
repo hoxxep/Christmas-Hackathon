@@ -19,6 +19,8 @@ public class Level extends BasicGameState {
     int presentsLeft;
     int score;
 
+    Image background;
+
     public Level(int state) {
         presentsLeft = DEFAULT_PRESENTS;
         score = 0;
@@ -34,6 +36,8 @@ public class Level extends BasicGameState {
         Present.loadImages();
         Santa.loadImages();
         Chimney.loadImages();
+        background = new Image(Game.RESOURCE + "background.jpeg");
+
         //present = new Present(new Vector(0,0), new Vector((float) 0,0));
         santa = new Santa();
         chimney = new Chimney(Game.WIDTH/2, Game.HEIGHT - Chimney.height());
@@ -47,6 +51,7 @@ public class Level extends BasicGameState {
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
+        graphics.drawImage(background, 0, 0);
         if (present != null)
             present.render(graphics);
         santa.render(graphics);

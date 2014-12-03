@@ -22,7 +22,7 @@ public class HighScoreLevel extends BasicGameState{
 
     public void addScore(int score){
         ArrayList<Score> scores = highscore.getScores();
-        if (scores.isEmpty() || score >= scores.get(scores.size() - 1).score) {
+        if (scores.size() < Highscores.SCORE_LIMIT || score >= scores.get(scores.size() - 1).score) {
             isEnteringName = true;
             newScore = new Score("", score);
         }
