@@ -73,7 +73,7 @@ public class HighScoreLevel extends BasicGameState{
 
     @Override
     public void keyPressed(int i, char c) {
-        System.out.println(i);
+        //System.out.println(i);
         if (isEnteringName) {
             if (i == 14 && !newScore.name.isEmpty()) {
                 newScore.name = newScore.name.substring(0, newScore.name.length() - 1);
