@@ -52,7 +52,6 @@ public class Game extends StateBasedGame {
             frame.add(container);
             frame.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    //TODO: save stuff?
                     Display.destroy();
 
                     System.out.println("Exiting " + TITLE + "...");
