@@ -14,8 +14,10 @@ public class Level extends BasicGameState {
     Present present;
     Santa santa;
 
-    public Level(int state) {
+    int presentsLeft;
 
+    public Level(int state) {
+        presentsLeft = 10;
     }
 
     @Override
@@ -29,7 +31,6 @@ public class Level extends BasicGameState {
         Santa.loadImages();
         //present = new Present(new Vector(0,0), new Vector((float) 0,0));
         santa = new Santa();
-
 
         container.setMaximumLogicUpdateInterval(8);
         container.setAlwaysRender(true);
@@ -58,7 +59,9 @@ public class Level extends BasicGameState {
 
     @Override
     public void keyPressed(int i, char c) {
-        if (present == null)
+        if (present == null && presentsLeft > 0) {
             present = new Present(santa.position(), santa.velocity());
+            presentsLeft--;
+        }
     }
 }
