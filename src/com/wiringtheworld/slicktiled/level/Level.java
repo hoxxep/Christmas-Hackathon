@@ -12,11 +12,14 @@ public class Level extends BasicGameState {
 
     Present present;
     Santa santa;
+    Chimney chimney;
 
     int presentsLeft;
+    int score;
 
     public Level(int state) {
         presentsLeft = 10;
+        score = 0;
     }
 
     @Override
@@ -28,8 +31,10 @@ public class Level extends BasicGameState {
     public void init(GameContainer container, StateBasedGame stateBasedGame) throws SlickException {
         Present.loadImages();
         Santa.loadImages();
+        Chimney.loadImages();
         //present = new Present(new Vector(0,0), new Vector((float) 0,0));
         santa = new Santa();
+        chimney = new Chimney(Game.WIDTH/2, Game.HEIGHT - Chimney.height());
 
         container.setMaximumLogicUpdateInterval(8);
         container.setAlwaysRender(true);
@@ -43,16 +48,27 @@ public class Level extends BasicGameState {
         if (present != null)
             present.render(graphics);
         santa.render(graphics);
+        chimney.render(graphics);
     }
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
         if (present != null) {
             present.update(i);
-            if (present.needsDestroyed()) {
+
+            if (chimney.checkSuccess(present)) {
+                score += 1;
+                present = null;
+            } else if (present.needsDestroyed()) {
                 present = null;
             }
+        } else {
+            if (presentsLeft <= 0) {
+
+                stateBasedGame.enterState(Game.HIGHSCORES);
+            }
         }
+        chimney.update(i);
         santa.update(i);
     }
 

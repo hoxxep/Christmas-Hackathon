@@ -13,7 +13,7 @@ public class Present {
     Vector pos;
     Vector vel;
 
-    private static Image presentImage;
+    public static Image presentImage;
 
     public Present(Vector position, Vector velocity){
         pos = position;
@@ -35,5 +35,13 @@ public class Present {
 
     public boolean needsDestroyed() {
         return (pos.y > Game.HEIGHT);
+    }
+
+    public int width(){
+        return presentImage.getWidth();
+    }
+
+    public int height(){
+        return presentImage.getHeight();
     }
 }
