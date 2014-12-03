@@ -33,4 +33,7 @@ public class Present {
         graphics.drawImage(presentImage, pos.x, pos.y);
     }
 
+    public boolean needsDestroyed() {
+        return (pos.y > Game.HEIGHT);
+    }
 }
