@@ -9,7 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Level extends BasicGameState {
     public Level(int state) {
-        //TODO: is the state thing necessary?
+
     }
 
     @Override
