@@ -14,8 +14,6 @@ public class Level extends BasicGameState {
     static final Vector G = new Vector(0F,9.81F * (1E-4F));
     static final Vector RES = new Vector(0.99F,1F);
 
-    static Image santaImage;
-
     Present present;
 
     public Level(int state) {
