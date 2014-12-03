@@ -17,6 +17,7 @@ public class Game extends StateBasedGame {
     public static final boolean FULLSCREEN = false;
 
     public static final String TITLE = "SlickTiled 0.1a";
+    public static final String RESOURCE = "res/";
 
     // States list
     public static final int LEVEL = 0;

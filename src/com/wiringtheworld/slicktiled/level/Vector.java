@@ -5,8 +5,8 @@ package com.wiringtheworld.slicktiled.level;
  */
 public class Vector {
 
-    private float x;
-    private float y;
+    public float x;
+    public float y;
 
     public Vector(float x, float y){
         this.x = x;
