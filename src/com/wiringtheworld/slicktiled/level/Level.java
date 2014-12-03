@@ -11,7 +11,7 @@ import java.lang.Math;
 
 public class Level extends BasicGameState {
 
-    static final Vector G = new Vector(0F,9.81F);
+    static final Vector G = new Vector(0F,9.81F * (1E-4F));
     static final Vector RES = new Vector(0.99F,1F);
 
     static Image santaImage;
@@ -30,7 +30,7 @@ public class Level extends BasicGameState {
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         Present.loadImages();
-        present = new Present(new Vector(0,0), new Vector(0,0));
+        present = new Present(new Vector(0,0), new Vector((float) 0,0));
     }
 
     @Override
@@ -40,6 +40,6 @@ public class Level extends BasicGameState {
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-
+        present.update(i);
     }
 }

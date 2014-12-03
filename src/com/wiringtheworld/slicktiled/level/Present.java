@@ -21,7 +21,7 @@ public class Present {
     }
 
     public static void loadImages() throws SlickException {
-        presentImage = new Image(Game.RESOURCE + "present-red.png");
+        presentImage = new Image(Game.RESOURCE + "present-red-small.png");
     }
 
     public void update(int i){
@@ -30,7 +30,7 @@ public class Present {
     }
 
     public void render(Graphics graphics) {
-        graphics.drawImage(presentImage, pos.x, pos.y); //TODO
+        graphics.drawImage(presentImage, pos.x, pos.y);
     }
 
 }
