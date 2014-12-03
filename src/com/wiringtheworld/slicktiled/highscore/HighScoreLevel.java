@@ -17,7 +17,8 @@ import java.util.ArrayList;
 public class HighScoreLevel extends BasicGameState{
 
     private Highscores highscore = new Highscores();
-
+    private boolean playagain = false;
+    long timeSpent = 0;
 
     public void addScore(Score s){
         highscore.addScore(s);
@@ -28,7 +29,7 @@ public class HighScoreLevel extends BasicGameState{
     }
 
     @Override public int getID() {
-            return Game.HIGHSCORES;
+        return Game.HIGHSCORES;
     }
 
     @Override
@@ -55,7 +56,17 @@ public class HighScoreLevel extends BasicGameState{
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
+        timeSpent += i;
+        if (playagain && timeSpent >= 3000) {
+            playagain = false;
+            timeSpent = 0;
+            stateBasedGame.enterState(Game.LEVEL);
+        }
+    }
 
+    @Override
+    public void keyPressed(int i, char c) {
+        if (timeSpent >= 3000) playagain = true;
     }
 }
 
