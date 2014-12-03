@@ -9,11 +9,19 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import java.util.ArrayList;
 
 /**
  * Created by chris on 03/12/2014.
  */
 public class HighScoreLevel extends BasicGameState{
+
+    private Highscores highscore = new Highscores();
+
+
+    public void addScore(Score s){
+        highscore.addScore(s);
+    }
 
     public HighScoreLevel(int state) {
 
@@ -30,6 +38,18 @@ public class HighScoreLevel extends BasicGameState{
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
+        graphics.drawString("Leaderboards",50,10);
+        float y = 50;
+        for(Score score : highscore.getScores() ){
+
+            graphics.drawString(score.name,50,y);
+            graphics.drawString(Integer.toString(score.score),100,y);
+
+
+            y += 10;
+
+        }
+
 
     }
 

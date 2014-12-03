@@ -1,5 +1,6 @@
 package com.wiringtheworld.slicktiled;
 
+import com.wiringtheworld.slicktiled.highscore.HighScoreLevel;
 import com.wiringtheworld.slicktiled.level.Level;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.CanvasGameContainer;
@@ -26,6 +27,7 @@ public class Game extends StateBasedGame {
     public Game(String name) {
         super(name);
         this.addState(new Level(LEVEL));
+        this.addState(new HighScoreLevel(HIGHSCORES));
     }
 
     public static void main(String args[]) {
