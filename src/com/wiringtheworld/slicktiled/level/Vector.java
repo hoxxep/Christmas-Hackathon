@@ -25,7 +25,6 @@ public class Vector {
         y *= v.y;
 
         return this;
-
     }
 
 }
