@@ -1,12 +1,10 @@
 package com.wiringtheworld.slicktiled.level;
 
 import com.wiringtheworld.slicktiled.Game;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-/**
- * Created by hyun-hoshin on 03/12/14.
- */
 public class Chimney {
     public Vector pos;
 
@@ -17,7 +15,7 @@ public class Chimney {
     }
 
     public static void loadImages() throws SlickException {
-        presentImage = new Image(Game.RESOURCE + "Santa_in_a_chimney.png");
+        chimneyImage = new Image(Game.RESOURCE + "chimney.png");
     }
 
     public boolean checkSuccess(Present present){
@@ -28,7 +26,19 @@ public class Chimney {
         return ((present.pos.x < pos.x && (present.pos.x + present.width() > pos.x) || (present.pos.x < pos.x + width()) && ((present.pos.x + present.width()) > (pos.x + width())) && (present.pos.y + present.height()) <= pos.y));
     }
 
-    public int width(){
+    public void update(int i) {
+
+    }
+
+    public void render(Graphics graphics) {
+        //graphics.drawImage(chimneyImage, Game.WIDTH/2, Game.HEIGHT - chimneyImage.getHeight());
+        graphics.drawImage(chimneyImage, pos.x, pos.y);
+    }
+
+    public static int width(){
         return chimneyImage.getWidth();
+    }
+    public static int height() {
+        return chimneyImage.getHeight();
     }
 }
