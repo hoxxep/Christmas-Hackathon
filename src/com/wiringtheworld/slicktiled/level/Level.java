@@ -59,10 +59,12 @@ public class Level extends BasicGameState {
             if (chimney.checkSuccess(present)) {
                 score += 1;
                 present = null;
+                System.out.println("In!");
             } else if (present.needsDestroyed()) {
                 present = null;
             } else if(chimney.checkBounce(present)){
                 present.bounce();
+                System.out.println("Bounce!");
             }
         } else {
             if (presentsLeft <= 0) {
