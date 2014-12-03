@@ -57,14 +57,15 @@ public class Level extends BasicGameState {
             present.update(i);
 
             if (chimney.checkSuccess(present)) {
-                score ++;
+                score += 1;
                 present = null;
             } else if (present.needsDestroyed()) {
                 present = null;
             }
         } else {
             if (presentsLeft <= 0) {
-                //TODO: transition into highscores
+
+                stateBasedGame.enterState(Game.HIGHSCORES);
             }
         }
         chimney.update(i);
