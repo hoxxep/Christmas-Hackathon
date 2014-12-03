@@ -15,7 +15,6 @@ public class Highscores {
         Collections.sort(scores);
         if (scores.size() > SCORE_LIMIT){
             scores.remove(scores.size() -1);
-
         }
     }
 

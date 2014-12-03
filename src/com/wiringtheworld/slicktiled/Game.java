@@ -17,17 +17,19 @@ public class Game extends StateBasedGame {
     public static int HEIGHT = 600;
     public static final boolean FULLSCREEN = false;
 
-    public static final String TITLE = "SlickTiled 0.1a";
+    public static final String TITLE = "Santa Claus";
     public static final String RESOURCE = "res/";
 
     // States list
     public static final int LEVEL = 0;
     public static final int HIGHSCORES = 1;
 
+    public static HighScoreLevel highscores;
+
     public Game(String name) {
         super(name);
         this.addState(new Level(LEVEL));
-        this.addState(new HighScoreLevel(HIGHSCORES));
+        this.addState(highscores = new HighScoreLevel(HIGHSCORES));
     }
 
     public static void main(String args[]) {
@@ -68,5 +70,6 @@ public class Game extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         this.enterState(LEVEL);
+        //this.enterState(HIGHSCORES);
     }
 }

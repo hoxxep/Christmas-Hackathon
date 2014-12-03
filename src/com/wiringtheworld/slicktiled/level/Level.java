@@ -1,6 +1,7 @@
 package com.wiringtheworld.slicktiled.level;
 
 import com.wiringtheworld.slicktiled.Game;
+import com.wiringtheworld.slicktiled.highscore.Score;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -18,7 +19,7 @@ public class Level extends BasicGameState {
     int score;
 
     public Level(int state) {
-        presentsLeft = 10;
+        presentsLeft = 2; //TODO: change to 10
         score = 0;
     }
 
@@ -61,10 +62,14 @@ public class Level extends BasicGameState {
                 present = null;
             } else if (present.needsDestroyed()) {
                 present = null;
+            } else if(chimney.checkBounce(present)){
+                present.bounce();
             }
         } else {
             if (presentsLeft <= 0) {
-
+                Game.highscores.addScore(new Score("test", score));
+                score = 0;
+                presentsLeft = 10;
                 stateBasedGame.enterState(Game.HIGHSCORES);
             }
         }
