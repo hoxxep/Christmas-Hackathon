@@ -14,7 +14,7 @@ public class Level extends BasicGameState {
     static final Vector RES = new Vector(0.99F,1F);
 
     public Level(int state) {
-        //TODO: is the state thing necessary?
+
     }
 
     @Override
