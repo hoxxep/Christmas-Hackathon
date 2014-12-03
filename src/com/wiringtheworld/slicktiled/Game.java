@@ -17,7 +17,7 @@ public class Game extends StateBasedGame {
     public static int HEIGHT = 600;
     public static final boolean FULLSCREEN = false;
 
-    public static final String TITLE = "SlickTiled 0.1a";
+    public static final String TITLE = "Santa Claus";
     public static final String RESOURCE = "res/";
 
     // States list

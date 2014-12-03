@@ -39,19 +39,15 @@ public class HighScoreLevel extends BasicGameState{
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-        graphics.drawString("Leaderboards",50,10);
-        float y = 50;
+        graphics.drawString("Leaderboards",50,50);
+        float y = 70;
         for(Score score : highscore.getScores() ){
 
             graphics.drawString(score.name,50,y);
             graphics.drawString(Integer.toString(score.score),100,y);
 
-
-            y += 10;
-
+            y += 14;
         }
-
-
     }
 
     @Override
