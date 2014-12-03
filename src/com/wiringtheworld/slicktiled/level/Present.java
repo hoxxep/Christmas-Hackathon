@@ -46,6 +46,8 @@ public class Present {
     }
 
     public void bounce(){
-        vel.y = -(vel.y / 1.5f);
+        if (vel.y > 0){
+            vel.y = -(vel.y / 1.5f);
+        }
     }
 }

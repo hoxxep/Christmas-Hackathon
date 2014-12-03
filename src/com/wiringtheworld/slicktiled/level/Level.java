@@ -10,7 +10,6 @@ public class Level extends BasicGameState {
 
     static final Vector G = new Vector(0F,2F * (1E-2F));
     static final Vector RES = new Vector(0.995F,1F);
-    static final int DEFAULT_PRESENTS = 2;
 
     Present present;
     Santa santa;
@@ -20,7 +19,7 @@ public class Level extends BasicGameState {
     int score;
 
     public Level(int state) {
-        presentsLeft = DEFAULT_PRESENTS;
+        presentsLeft = 2; //TODO: change to 10
         score = 0;
     }
 
@@ -70,7 +69,7 @@ public class Level extends BasicGameState {
             if (presentsLeft <= 0) {
                 Game.highscores.addScore(new Score("test", score));
                 score = 0;
-                presentsLeft = DEFAULT_PRESENTS;
+                presentsLeft = 10;
                 stateBasedGame.enterState(Game.HIGHSCORES);
             }
         }
