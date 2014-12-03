@@ -61,6 +61,8 @@ public class Level extends BasicGameState {
                 present = null;
             } else if (present.needsDestroyed()) {
                 present = null;
+            } else if(chimney.checkBounce(present)){
+                present.bounce();
             }
         } else {
             if (presentsLeft <= 0) {

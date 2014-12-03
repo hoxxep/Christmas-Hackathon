@@ -44,4 +44,8 @@ public class Present {
     public int height(){
         return presentImage.getHeight();
     }
+
+    public void bounce(){
+        vel.y = -(vel.y / 2);
+    }
 }
