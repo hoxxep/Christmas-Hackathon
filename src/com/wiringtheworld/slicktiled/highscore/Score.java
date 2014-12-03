@@ -18,7 +18,7 @@ public class Score implements Comparable<Score>{
         if (score == s.score){
                 return name.compareTo(s.name);
         }
-        return score -s.score;
+        return s.score-score;
 
         }
 
