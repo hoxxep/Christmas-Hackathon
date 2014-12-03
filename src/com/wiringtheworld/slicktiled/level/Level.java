@@ -69,7 +69,7 @@ public class Level extends BasicGameState {
             }
         } else {
             if (presentsLeft <= 0) {
-                Game.highscores.addScore(new Score("test", score));
+                Game.highscores.addScore(score);
                 score = 0;
                 presentsLeft = DEFAULT_PRESENTS;
                 stateBasedGame.enterState(Game.HIGHSCORES);
